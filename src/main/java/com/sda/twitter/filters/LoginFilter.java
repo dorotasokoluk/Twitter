@@ -20,14 +20,12 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         final HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         final HttpSession session = httpServletRequest.getSession();
-        final TbUser currentUser = (TbUser) session.getAttribute("currentUser");
+        TbUser currentUser = (TbUser) session.getAttribute("currentUser");
         if (currentUser == null) {
-            final String requestURI = ((HttpServletRequest) servletRequest).getRequestURI();
+            final String requestURI = httpServletRequest.getRequestURI();
             httpServletRequest.setAttribute("currentURI", requestURI);
             RequestDispatcher requestDispatcher = servletRequest.getRequestDispatcher("login.jsp");
-
             requestDispatcher.forward(servletRequest, servletResponse);
-
         }
         filterChain.doFilter(servletRequest, servletResponse);
 
