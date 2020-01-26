@@ -40,6 +40,9 @@
         <div class="container">
             <div class="col-md-4 m-auto">
                 <form action="login" method="get">
+                    <input type="hidden" name="currentURIfromLoginJSP" value="{request.getParametr('currentURI')}">
+                    <!-- nie będize widoczne dla użytkownika-->
+
                     <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt=""
                          width="72"
                          height="72">
