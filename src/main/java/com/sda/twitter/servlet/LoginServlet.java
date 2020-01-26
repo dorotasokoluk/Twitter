@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
             if (currentURIfromLoginJSP == null || "login.jsp".equals(currentURIfromLoginJSP)) {
                 response.sendRedirect("/");
             } else {
-                System.out.println();
+             response.sendRedirect(currentURIfromLoginJSP);
             }
         } catch (ImproperLoginCredentials improperLoginCredentials) {
             improperLoginCredentials.printStackTrace();
